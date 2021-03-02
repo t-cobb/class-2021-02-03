@@ -32,11 +32,18 @@ x <- read_csv("~/bunmd_v2.csv",
 
 ```
 
-```{r}
+```{r make_small}
 # look at only a fraction of the full data set with slice_sample
 
-x %>% slice_sample(prop = 0.01) %>%
-  select("bday")
+small <- x %>% slice_sample(prop = 0.001)
+
+```
+
+```{r}
+
+bday_plot <- x %>% 
+  ggplot(aes(x = bday)) +
+  geom_bar()
 
 ```
 
